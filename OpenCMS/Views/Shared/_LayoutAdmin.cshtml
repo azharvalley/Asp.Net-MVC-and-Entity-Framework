@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+    <title>@ViewBag.Title</title>
+    <meta name="keywords" content="" />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/admin-assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/admin-assets/css/fontawesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/admin-assets/css/header.css">
+    <link rel="stylesheet" type="text/css" href="/admin-assets/css/style.css">
+    <link rel="shortcut icon" href="/admin-assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/admin-assets/images/favicon.ico" type="image/x-icon">
+    <!--[if lt IE 9]>
+               <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+               <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->    
+</head>
+<body>
+    <header>
+        <div class="nav-side-menu">
+            <div class="brand"><a href="index.shtml" title="CMS"><img src="/admin-assets/images/logo.svg" class="img-responsive" alt="logo" /></a></div>
+            <div class="clearfix"></div>
+
+            <div class="clearfix"></div>
+            <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+            <div class="menu-list">
+
+                <ul id="menu-content" class="menu-content collapse out">
+                    <li class="active"> <a href="/admin/index"> <i class="fal fa-tachometer-alt fa-lg"></i>Dashboard </a> </li>
+                    <li> <a href="/Admin/AddUpdatePage"> <i class="fal fa-plus fa-lg"></i>Add new page </a> </li>
+                    <li> <a href="/Admin/AllCMSPages"> <i class="fal fa-list fa-lg"></i>Page Lists </a> </li>
+                    <li> <a href="/Account/LogOff"> <i class="fal fa-sign-out-alt fa-lg"></i>Logout </a> </li>
+
+                    <!--<li>
+        <a href="/admin/index" class="user-menu-pic">
+            <div class="user-fc" style="background-image: url(/admin-assets/images/jhon.jpg)"></div>
+            <p>
+                <span>Welcome</span><br>
+                <strong>John Doe</strong>
+            </p>
+        </a>
+    </li>
+
+    <li data-toggle="collapse" data-target="#products" class="collapsed sub-menu-head">
+        <a href="#!"><i class="fal fa-calendar-check fa-lg"></i>Forms <span class="arrow"></span></a>
+        <ul class="sub-menu collapse" data-parent="#menu-content" id="products">
+            <li><a href="form.shtml"><i class="fal fa-calendar-plus fa-lg"></i>Forms</a></li>
+            <li><a href="#!"><i class="fal fa-clipboard-list fa-lg"></i>Tab</a></li>
+        </ul>
+    </li>
+    <li> <a href="#"> <i class="fal fa-key "></i>Change Password </a> </li>-->
+
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="db-area-main ">
+        <div class="db-inner">
+            @RenderBody()
+        </div>
+        </div>
+        <script src="/admin-assets/js/jquery-2.2.1.min.js"></script>
+        <script src="/admin-assets/js/popper.min.js"></script>
+        <script src="/admin-assets/js/bootstrap.min.js"></script>
+</body>
+</html>

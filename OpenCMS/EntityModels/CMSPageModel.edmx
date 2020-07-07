@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DBCMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CMSPage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Slug" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="PTitle" Type="nvarchar" MaxLength="500" />
+          <Property Name="PKeyword" Type="nvarchar" MaxLength="500" />
+          <Property Name="PDescription" Type="nvarchar" MaxLength="500" />
+          <Property Name="PageContent" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="Create_On" Type="datetime" Nullable="false" />
+          <Property Name="Modify_On" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Function Name="AddPage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="Slug" Type="nvarchar" Mode="In" />
+          <Parameter Name="PTitle" Type="nvarchar" Mode="In" />
+          <Parameter Name="PKeyword" Type="nvarchar" Mode="In" />
+          <Parameter Name="PDescription" Type="nvarchar" Mode="In" />
+          <Parameter Name="PageContent" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="IsActive" Type="bit" Mode="In" />
+          <Parameter Name="IsDelete" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="DeletePageById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="bigint" Mode="In" />
+          <Parameter Name="Result" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="EditPage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="Slug" Type="nvarchar" Mode="In" />
+          <Parameter Name="PTitle" Type="nvarchar" Mode="In" />
+          <Parameter Name="PKeyword" Type="nvarchar" Mode="In" />
+          <Parameter Name="PDescription" Type="nvarchar" Mode="In" />
+          <Parameter Name="PageContent" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="IsActive" Type="bit" Mode="In" />
+          <Parameter Name="IsDelete" Type="bit" Mode="In" />
+          <Parameter Name="Result" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="FetchAllPages" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="FetchPageById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="FetchPageBySlug" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Slug" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="FetchPageInfoById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="InsertPage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="Slug" Type="nvarchar" Mode="In" />
+          <Parameter Name="PTitle" Type="nvarchar" Mode="In" />
+          <Parameter Name="PKeyword" Type="nvarchar" Mode="In" />
+          <Parameter Name="PDescription" Type="nvarchar" Mode="In" />
+          <Parameter Name="PageContent" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="IsActive" Type="bit" Mode="In" />
+          <Parameter Name="IsDelete" Type="bit" Mode="In" />
+          <Parameter Name="Result" Type="varchar" Mode="InOut" />
+          <Parameter Name="CreatedId" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="UpdatePage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="Slug" Type="nvarchar" Mode="In" />
+          <Parameter Name="PTitle" Type="nvarchar" Mode="In" />
+          <Parameter Name="PKeyword" Type="nvarchar" Mode="In" />
+          <Parameter Name="PDescription" Type="nvarchar" Mode="In" />
+          <Parameter Name="PageContent" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="IsActive" Type="bit" Mode="In" />
+          <Parameter Name="IsDelete" Type="bit" Mode="In" />
+        </Function>
+        <EntityContainer Name="DBCMSModelStoreContainer">
+          <EntitySet Name="CMSPage" EntityType="Self.CMSPage" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBCMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CMSPage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Slug" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PTitle" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="PKeyword" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="PDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="PageContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="Create_On" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Modify_On" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="DBCMSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CMSPages" EntityType="Self.CMSPage" />
+          <FunctionImport Name="AddPage" ReturnType="Collection(Decimal)">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Slug" Mode="In" Type="String" />
+            <Parameter Name="PTitle" Mode="In" Type="String" />
+            <Parameter Name="PKeyword" Mode="In" Type="String" />
+            <Parameter Name="PDescription" Mode="In" Type="String" />
+            <Parameter Name="PageContent" Mode="In" Type="String" />
+            <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+            <Parameter Name="IsDelete" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="EditPage">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Slug" Mode="In" Type="String" />
+            <Parameter Name="PTitle" Mode="In" Type="String" />
+            <Parameter Name="PKeyword" Mode="In" Type="String" />
+            <Parameter Name="PDescription" Mode="In" Type="String" />
+            <Parameter Name="PageContent" Mode="In" Type="String" />
+            <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+            <Parameter Name="IsDelete" Mode="In" Type="Boolean" />
+            <Parameter Name="Result" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FetchAllPages" ReturnType="Collection(DBCMSModel.FetchAllPages_Result)" />
+          <FunctionImport Name="FetchPageById" ReturnType="Collection(DBCMSModel.FetchPageById_Result)">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="FetchPageBySlug" ReturnType="Collection(DBCMSModel.FetchPageBySlug_Result)">
+          <Parameter Name="Slug" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FetchPageInfoById" ReturnType="Collection(DBCMSModel.FetchPageInfoById_Result)">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertPage">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Slug" Mode="In" Type="String" />
+            <Parameter Name="PTitle" Mode="In" Type="String" />
+            <Parameter Name="PKeyword" Mode="In" Type="String" />
+            <Parameter Name="PDescription" Mode="In" Type="String" />
+            <Parameter Name="PageContent" Mode="In" Type="String" />
+            <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+            <Parameter Name="IsDelete" Mode="In" Type="Boolean" />
+            <Parameter Name="Result" Mode="InOut" Type="String" />
+            <Parameter Name="CreatedId" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UpdatePage" ReturnType="Collection(Int32)">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Slug" Mode="In" Type="String" />
+            <Parameter Name="PTitle" Mode="In" Type="String" />
+            <Parameter Name="PKeyword" Mode="In" Type="String" />
+            <Parameter Name="PDescription" Mode="In" Type="String" />
+            <Parameter Name="PageContent" Mode="In" Type="String" />
+            <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+            <Parameter Name="IsDelete" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="DeletePageById">
+            <Parameter Name="Id" Mode="In" Type="Int64" />
+            <Parameter Name="Result" Mode="InOut" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="FetchAllPages_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Slug" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="PTitle" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="PKeyword" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="PDescription" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="PageContent" Nullable="true" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="Boolean" Name="IsDelete" Nullable="false" />
+          <Property Type="DateTime" Name="Create_On" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="Modify_On" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="FetchPageById_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Slug" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="PTitle" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="PKeyword" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="PDescription" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="PageContent" Nullable="true" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="Boolean" Name="IsDelete" Nullable="false" />
+          <Property Type="DateTime" Name="Create_On" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="Modify_On" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="FetchPageBySlug_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Slug" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="PTitle" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="PKeyword" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="PDescription" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="PageContent" Nullable="true" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="Boolean" Name="IsDelete" Nullable="false" />
+          <Property Type="DateTime" Name="Create_On" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="Modify_On" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="FetchPageInfoById_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Slug" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="PTitle" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="PKeyword" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="PDescription" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="PageContent" Nullable="true" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="Boolean" Name="IsDelete" Nullable="false" />
+          <Property Type="DateTime" Name="Create_On" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="Modify_On" Nullable="false" Precision="23" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBCMSModelStoreContainer" CdmEntityContainer="DBCMSEntities">
+          <EntitySetMapping Name="CMSPages">
+            <EntityTypeMapping TypeName="DBCMSModel.CMSPage">
+              <MappingFragment StoreEntitySet="CMSPage">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Slug" ColumnName="Slug" />
+                <ScalarProperty Name="PTitle" ColumnName="PTitle" />
+                <ScalarProperty Name="PKeyword" ColumnName="PKeyword" />
+                <ScalarProperty Name="PDescription" ColumnName="PDescription" />
+                <ScalarProperty Name="PageContent" ColumnName="PageContent" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Create_On" ColumnName="Create_On" />
+                <ScalarProperty Name="Modify_On" ColumnName="Modify_On" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="AddPage" FunctionName="DBCMSModel.Store.AddPage" />
+          <FunctionImportMapping FunctionImportName="EditPage" FunctionName="DBCMSModel.Store.EditPage" />
+          <FunctionImportMapping FunctionImportName="FetchAllPages" FunctionName="DBCMSModel.Store.FetchAllPages">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBCMSModel.FetchAllPages_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Slug" ColumnName="Slug" />
+                <ScalarProperty Name="PTitle" ColumnName="PTitle" />
+                <ScalarProperty Name="PKeyword" ColumnName="PKeyword" />
+                <ScalarProperty Name="PDescription" ColumnName="PDescription" />
+                <ScalarProperty Name="PageContent" ColumnName="PageContent" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Create_On" ColumnName="Create_On" />
+                <ScalarProperty Name="Modify_On" ColumnName="Modify_On" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FetchPageById" FunctionName="DBCMSModel.Store.FetchPageById">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBCMSModel.FetchPageById_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Slug" ColumnName="Slug" />
+                <ScalarProperty Name="PTitle" ColumnName="PTitle" />
+                <ScalarProperty Name="PKeyword" ColumnName="PKeyword" />
+                <ScalarProperty Name="PDescription" ColumnName="PDescription" />
+                <ScalarProperty Name="PageContent" ColumnName="PageContent" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Create_On" ColumnName="Create_On" />
+                <ScalarProperty Name="Modify_On" ColumnName="Modify_On" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FetchPageBySlug" FunctionName="DBCMSModel.Store.FetchPageBySlug">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBCMSModel.FetchPageBySlug_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Slug" ColumnName="Slug" />
+                <ScalarProperty Name="PTitle" ColumnName="PTitle" />
+                <ScalarProperty Name="PKeyword" ColumnName="PKeyword" />
+                <ScalarProperty Name="PDescription" ColumnName="PDescription" />
+                <ScalarProperty Name="PageContent" ColumnName="PageContent" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Create_On" ColumnName="Create_On" />
+                <ScalarProperty Name="Modify_On" ColumnName="Modify_On" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FetchPageInfoById" FunctionName="DBCMSModel.Store.FetchPageInfoById">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBCMSModel.FetchPageInfoById_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Slug" ColumnName="Slug" />
+                <ScalarProperty Name="PTitle" ColumnName="PTitle" />
+                <ScalarProperty Name="PKeyword" ColumnName="PKeyword" />
+                <ScalarProperty Name="PDescription" ColumnName="PDescription" />
+                <ScalarProperty Name="PageContent" ColumnName="PageContent" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Create_On" ColumnName="Create_On" />
+                <ScalarProperty Name="Modify_On" ColumnName="Modify_On" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="InsertPage" FunctionName="DBCMSModel.Store.InsertPage" />
+          <FunctionImportMapping FunctionImportName="UpdatePage" FunctionName="DBCMSModel.Store.UpdatePage" />
+          <FunctionImportMapping FunctionImportName="DeletePageById" FunctionName="DBCMSModel.Store.DeletePageById" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
