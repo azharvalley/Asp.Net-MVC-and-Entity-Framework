@@ -2,12 +2,14 @@
 
 CRUD Web Application with Asp.Net MVC and Entity Framework
 
-Created using:
+Project is built on Visual Studio 2019 and Created using:
 - ASP.NET MVC
 - C#.NET
 - Entity Framework
 - SQL
 - Stored Procedures. 
+
+
 
 
 **You will require SQL Server Database on your local machine**
@@ -27,3 +29,16 @@ Created using:
   ```
 
 >Enter your Server, Database name, User ID and Password in the connectionstring. 
+
+--------------------------------------------------------------------------------------------------------------------------
+When you run this project and if you get Internal server error
+--------------------------------------------------------------------------------------------------------------------------
+Could not find a part of the path ***D:\git\Asp.Net-MVC-and-Entity-Framework-master\OpenCMS\bin\roslyn\csc.exe***
+
+Then you can install Roslyn package to the project vusing NuGet package 
+
+*Install-Package Microsoft.CodeAnalysis*
+
+--------------------------------------------------------------------------------------------------------------------
+
+
