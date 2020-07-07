@@ -31,11 +31,13 @@ Project is built on Visual Studio 2019 and Created using:
 >Enter your Server, Database name, User ID and Password in the connectionstring. 
 
 --------------------------------------------------------------------------------------------------------------------------
-When you run this project and if you get Internal server error
---------------------------------------------------------------------------------------------------------------------------
-Could not find a part of the path ***D:\git\Asp.Net-MVC-and-Entity-Framework-master\OpenCMS\bin\roslyn\csc.exe***
 
-Then you can install Roslyn package to the project vusing NuGet package 
+When you run this project and if you get below 'Internal server error'
+
+
+-Could not find a part of the path ***D:\git\Asp.Net-MVC-and-Entity-Framework-master\OpenCMS\bin\roslyn\csc.exe***
+
+Then you can install Roslyn package to the project using NuGet package 
 
 *Install-Package Microsoft.CodeAnalysis*
 
